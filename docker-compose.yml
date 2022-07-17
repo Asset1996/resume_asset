@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  app:
+    # Builds docker image in the current directory
+    build:
+      context: .
+    # Maps port 8000 of the machine to the port 8000 of the container
+    ports:
+      - "8000:8000"
+    # Maps local /app directory to the /app directory in the container, 
+    # so that the changes in the /app directory in local machine reflects 
+    # to /app directory in the container in real time,  
+    # so we don't need to rebuild the image all the time
+    volumes:
+      - ./app:/app
+    # Runs the command that described below
+    command: python manage.py runserver 0.0.0.0:8000
