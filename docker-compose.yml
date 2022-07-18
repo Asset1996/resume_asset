@@ -14,5 +14,5 @@ services:
     # so we don't need to rebuild the image all the time
     volumes:
       - ./app:/app
-    # Runs the command that described below
+    # Runs the command (after 'docker-compose up')
     command: python manage.py runserver 0.0.0.0:8000
